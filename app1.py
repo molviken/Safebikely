@@ -22,7 +22,7 @@ MESSAGE_LASTWILL = False
 PROTOCOL = IoTHubTransportProvider.MQTT
 MSG_STATUS = "{\"DeviceID\": \"%s\", \"Status\": %s}"
 MSG_LASTWILL = "{\"DeviceID\": \"%s\", \"Still alive\"}"
-CONNECTION_STRING = "HostName=scf-test.azure-devices.net;DeviceId=2;SharedAccessKey=DfvwGJBicK5FNyilp+JlhLupGHcLd2/YMqWq3g685SI="
+CONNECTION_STRING = "HostName=scf-test.azure-devices.net;DeviceId=1;SharedAccessKey=poevYwfBYZvo4uEpxNQbOOJXsD9CSTCkhdI5GH7Dr5U="
 prev_will_msg = time.time()
 auto_lock_timer = 7 
 OPEN = "OPEN"
@@ -104,10 +104,10 @@ def lock_manager():
             prev_will_msg = time.time()
         time.sleep(1)
             
-def repairman(error):
-    
-    print("repairman")
-    return 0
+#def repairman(error):
+#    
+#    print("repairman")
+#    return 0
 
 def event_handler(event, data):
     global MESSAGE_STATUS, lock_status, auto_lock_timer
@@ -134,6 +134,7 @@ def device_method_callback(method_name, payload, user_context):
     device_method_return_value.response = "{\"Response\": \"OK\" }"
     device_method_return_value.status = 200
     data = json.loads(payload)
+    print ("Method name: %s, payload: %s"%(method_name, data))
     logger.info("Received event: %s", method_name)
     device_method_return_value.response = event_handler(method_name,data)
     logger.debug("Ending callback with event: %s, and response: %s", method_name, device_method_return_value.response)
@@ -141,6 +142,7 @@ def device_method_callback(method_name, payload, user_context):
 
 def send_confirmation_callback(message, result, user_context):
     logger.info ( "Message call confirmed\n " )
+    print("Hei")
 
 def iothub_client_init():
     logger.info("Initializing iothub_client")

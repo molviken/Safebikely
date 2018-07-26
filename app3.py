@@ -22,7 +22,7 @@ MESSAGE_LASTWILL = False
 PROTOCOL = IoTHubTransportProvider.MQTT
 MSG_STATUS = "{\"DeviceID\": \"%s\", \"Status\": %s}"
 MSG_LASTWILL = "{\"DeviceID\": \"%s\", \"Still alive\"}"
-CONNECTION_STRING = "HostName=scf-test.azure-devices.net;DeviceId=2;SharedAccessKey=DfvwGJBicK5FNyilp+JlhLupGHcLd2/YMqWq3g685SI="
+CONNECTION_STRING = "HostName=scf-test.azure-devices.net;DeviceId=3;SharedAccessKey=GF6qdxaqPPIrlEqKkzwu2qEftxy4cnZbm/Y6XEHhqkE="
 prev_will_msg = time.time()
 auto_lock_timer = 7 
 OPEN = "OPEN"
