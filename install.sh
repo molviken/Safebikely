@@ -1,8 +1,14 @@
 #!/bin/bash
 clear
+home_folder = $HOME
+
+cd home_folder
+git clone https://github.com/molviken/dsadsa
+cd dsadsa
 git clone --recursive https://github.com/Azure/azure-iot-sdk-python.git .
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+
 PYTHON2_VER=`python --version 2>&1 | cut -d" " -f2`
 PYTHON3_VER=`python3 --version 2>&1 | cut -d" " -f2`
 PYTHON_INPUT=0
@@ -40,7 +46,9 @@ CMAKE_VER=`cmake --version | head -n1 | cut -d" " -f3`
 GCC_VER=`gcc --version | head -n1 | cut -d" " -f4`
 echo "$CMAKE_VER"
 echo "$GCC_VER"
-sudo chmod u+x setup.sh
+
+
+sudo chmod u+x ./build_all/linux/setup.sh
 ./build_all/linux/setup.sh --python-version $PYTHON_INPUT
 ./build_all/linux/build.sh --python-version $PYTHON_INPUT
 sudo chmod 777 app2.py
