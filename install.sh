@@ -1,12 +1,8 @@
 #!/bin/bash
-#clear
 
-cd $home
-#git clone https://github.com/molviken/dsadsa safebikel safebikelyy
-cd safebikely
-#git clone --recursive https://github.com/Azure/azure-iot-sdk-python.git azure-iot-sdk-python
-#sudo apt-get update
-#sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+git clone --recursive https://github.com/Azure/azure-iot-sdk-python.git azure-iot-sdk-python
+sudo apt-get update
+sudo apt-get install -y cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 
 PYTHON2_VER=`python --version 2>&1 | cut -d" " -f2`
 PYTHON3_VER=`python3 --version 2>&1 | cut -d" " -f2`
@@ -47,13 +43,13 @@ echo "$CMAKE_VER"
 echo "$GCC_VER"
 
 
-#sudo chmod u+x ./azure-iot-sdk-python/build_all/linux/setup.sh
-#./azure-iot-sdk-python/build_all/linux/setup.sh --python-version $PYTHON_INPUT
-#./azure-iot-sdk-python/build_all/linux/build.sh
-sudo chmod 777 ./single_lock/appTest.py
-#mv app1.py ./device/samples/
-#mv IMS.service /etc/systemd/system/
-sudo systemctl enable IMS.service
-sudo systemctl start IMS.service
-#cd ./device/samples
+chmod u+x ./azure-iot-sdk-python/build_all/linux/setup.sh
+./azure-iot-sdk-python/build_all/linux/setup.sh --python-version $PYTHON_INPUT
+./azure-iot-sdk-python/build_all/linux/build.sh
+chmod 777 ./single_lock/appTest.py
+touch /var/log/safebikely.log
+chown molviken /var/log/safebikely.log
+mv IMS.service /etc/systemd/system/
+systemctl enable IMS.service
+systemctl start IMS.service
 
