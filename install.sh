@@ -1,13 +1,12 @@
 #!/bin/bash
-clear
-home_folder = $HOME
+#clear
 
-cd home_folder
-git clone https://github.com/molviken/dsadsa
-cd dsadsa
-git clone --recursive https://github.com/Azure/azure-iot-sdk-python.git .
-sudo apt-get update
-sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+cd $home
+#git clone https://github.com/molviken/dsadsa safebikel safebikelyy
+cd safebikely
+#git clone --recursive https://github.com/Azure/azure-iot-sdk-python.git azure-iot-sdk-python
+#sudo apt-get update
+#sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 
 PYTHON2_VER=`python --version 2>&1 | cut -d" " -f2`
 PYTHON3_VER=`python3 --version 2>&1 | cut -d" " -f2`
@@ -48,12 +47,13 @@ echo "$CMAKE_VER"
 echo "$GCC_VER"
 
 
-sudo chmod u+x ./build_all/linux/setup.sh
-./build_all/linux/setup.sh --python-version $PYTHON_INPUT
-./build_all/linux/build.sh --python-version $PYTHON_INPUT
-sudo chmod 777 app2.py
-mv app1.py ./device/samples/
-mv IMS.service /etc/systemd/system/
+#sudo chmod u+x ./azure-iot-sdk-python/build_all/linux/setup.sh
+#./azure-iot-sdk-python/build_all/linux/setup.sh --python-version $PYTHON_INPUT
+#./azure-iot-sdk-python/build_all/linux/build.sh
+sudo chmod 777 ./single_lock/appTest.py
+#mv app1.py ./device/samples/
+#mv IMS.service /etc/systemd/system/
+sudo systemctl enable IMS.service
 sudo systemctl start IMS.service
-cd ./device/samples
+#cd ./device/samples
 

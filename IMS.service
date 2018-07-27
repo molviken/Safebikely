@@ -4,13 +4,13 @@ Wants=system.slice
 After=sysinit.target
 
 [Service]
-ExecStart=/home/pi/safebikely/app1.py
+ExecStart=/home/molviken/safebikely/single_lock/appTest.py
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=IMS
-User=pi
-Group=pi
+User=molviken
+Group=molviken
 
 [Install]
 WantedBy=multi-user.target
