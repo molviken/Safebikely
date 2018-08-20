@@ -4,7 +4,7 @@ Wants=system.slice
 After=sysinit.target
 
 [Service]
-ExecStart=/home/molviken/safebikely/single_lock/appTest.py
+ExecStart=/root/safebikely/single_lock/appTest.py
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
